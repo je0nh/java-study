@@ -1,26 +1,42 @@
 package nullnullclass.copy;
 
 public class MyString {
-    private String str;
+    // 문자열을 byte[]로 저장하여 메모리 효율성을 높임
+    private byte[] string;
 
-    public MyString(String str) {
-        this.str = str;
+    public MyString() {
+        string = null;
     }
 
-    public MyString(MyString str) {
-        this.deepCopy(str.getString());
+    public MyString(String param) {
+        // getBytes() 메서드를 사용하여 문자열을 byte[]로 변환 -> "abc" = {97, 98, 99}
+        string = param.getBytes();
+    }
+
+    // 숫자를 문자로 초기화하기 위한 생성자
+    public MyString(int param) {
+        String tmp = String.format("%d", param);
+        string = tmp.getBytes();
+    }
+
+    public MyString(MyString rhs) {
+        this.deepCopy(rhs);
     }
 
     public String getString() {
-        return str;
+        return new String(string);
     }
 
     public void setString(String str) {
-        this.str = str;
+        if (str != null) {
+            string = str.getBytes();
+        } else {
+            string = null;
+        }
     }
 
-    private void deepCopy(String str) {
-        this.str = new String(str);
+    private void deepCopy(MyString rhs) {
+        this.string = rhs.string.clone();
     }
 }
 
@@ -31,6 +47,7 @@ class Main {
         MyString dst = new MyString(src);
 
         src.setString("World");
-        System.out.println(dst.getString());
+        System.out.println("src String: " + src.getString());
+        System.out.println("dst String: " + dst.getString());
     }
 }
