@@ -39,15 +39,3 @@ public class MyString {
         this.string = rhs.string.clone();
     }
 }
-
-class Main {
-
-    public static void main(String[] args) {
-        MyString src = new MyString("Hello");
-        MyString dst = new MyString(src);
-
-        src.setString("World");
-        System.out.println("src String: " + src.getString());
-        System.out.println("dst String: " + dst.getString());
-    }
-}
