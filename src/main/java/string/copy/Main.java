@@ -1,4 +1,4 @@
-package nullnullclass.copy;
+package string.copy;
 
 public class Main {
     public static void main(String[] args) {

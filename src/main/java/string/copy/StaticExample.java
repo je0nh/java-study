@@ -1,4 +1,4 @@
-package nullnullclass.copy;
+package string.copy;
 
 public class StaticExample {
     private byte[] string;

@@ -1,4 +1,4 @@
-package nullnullclass.string;
+package string.string;
 
 class MyString {
     private byte[] string;

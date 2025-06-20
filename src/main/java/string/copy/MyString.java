@@ -1,4 +1,4 @@
-package nullnullclass.copy;
+package string.copy;
 
 public class MyString {
     // 문자열을 byte[]로 저장하여 메모리 효율성을 높임
